@@ -29,12 +29,12 @@ data "aws_subnets" "public_subnets" {
 
 data "aws_subnets" "private_subnets" {
   count = var.lb_subnets == null && var.internal ? 1 : 0
-  filter {
-    name   = "vpc-id"
-    values = [local.vpc_id]
-  }
-  filter {
-    name   = "tag:Name"
-    values = ["*-private-*"]
+
+  dynamic "filter" {
+    for_each = local.subnet_data_lookup_filters
+    content {
+      name   = filter.key
+      values = filter.value
+    }
   }
 }
