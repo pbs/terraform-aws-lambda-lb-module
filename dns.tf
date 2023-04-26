@@ -1,4 +1,4 @@
-resource "aws_route53_record" "app" {
+resource "aws_route53_record" "record" {
   count = local.product_dns_record_count
 
   zone_id = local.hosted_zone_id

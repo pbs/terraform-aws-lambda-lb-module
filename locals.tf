@@ -40,7 +40,7 @@ locals {
 
   acm_arn = var.acm_arn != null ? var.acm_arn : local.lookup_primary_acm_wildcard_cert ? one(data.aws_acm_certificate.primary_acm_wildcard_cert[*].arn) : null
 
-  domain_name = local.product_dns_record_count == 0 ? one(aws_lb.lb.dns_name) : one(aws_route53_record.app[*].fqdn)
+  domain_name = local.product_dns_record_count == 0 ? one(aws_lb.lb.dns_name) : one(aws_route53_record.record[*].fqdn)
 
   only_create_http_listener = var.create_http_listeners && !var.create_https_listeners
   http_forward_rule_count   = local.only_create_http_listener ? length(local.aliases) : 0
