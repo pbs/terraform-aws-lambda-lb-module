@@ -1,4 +1,4 @@
-# PBS TF MOD_TITLE
+# PBS TF Lambda LB
 
 ## Installation
 
@@ -7,7 +7,7 @@
 Use this URL for the source of the module. See the usage examples below for more details.
 
 ```hcl
-github.com/pbs/terraform-aws-MOD_NAME?ref=x.y.z
+github.com/pbs/terraform-aws-lambda-lb-module?ref=x.y.z
 ```
 
 ### Alternative Installation Methods
@@ -16,20 +16,19 @@ More information can be found on these install methods and more in [the document
 
 ## Usage
 
-<!-- TODO -->
-This should be a basic description of what this module does.
-Fill this out before completing usage of this template.
-<!-- TODO -->
+Provisions an AWS Lambda function and an Application Load Balancer to route traffic to it.
 
 Integrate this module like so:
 
 ```hcl
-module "MOD_SHORTNAME" {
-  source = "github.com/pbs/terraform-aws-MOD_NAME?ref=x.y.z"
+module "lambda_lb" {
+  source = "github.com/pbs/terraform-aws-lambda-lb-module?ref=x.y.z"
 
-  <!-- TODO -->
-  Show some examples of valid values for required parameters.
-  <!-- TODO -->
+  handler  = "main.lambda_handler"
+  filename = "./artifacts/deploy.zip"
+  runtime  = "python3.10"
+
+  primary_hosted_zone = var.primary_hosted_zone
 
   # Tagging Parameters
   organization = var.organization
