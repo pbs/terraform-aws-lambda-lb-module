@@ -7,7 +7,7 @@
 Use this URL for the source of the module. See the usage examples below for more details.
 
 ```hcl
-github.com/pbs/terraform-aws-lambda-lb-module?ref=0.0.7
+github.com/pbs/terraform-aws-lambda-lb-module?ref=x.y.z
 ```
 
 ### Alternative Installation Methods
@@ -22,7 +22,7 @@ Integrate this module like so:
 
 ```hcl
 module "lambda_lb" {
-  source = "github.com/pbs/terraform-aws-lambda-lb-module?ref=0.0.7"
+  source = "github.com/pbs/terraform-aws-lambda-lb-module?ref=x.y.z"
 
   handler  = "main.lambda_handler"
   filename = "./artifacts/deploy.zip"
@@ -44,7 +44,7 @@ module "lambda_lb" {
 
 If this repo is added as a subtree, then the version of the module should be close to the version shown here:
 
-`0.0.7`
+`x.y.z`
 
 Note, however that subtrees can be altered as desired within repositories.
 
@@ -67,13 +67,13 @@ Below is automatically generated documentation on this Terraform module using [t
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.11.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.12.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_lambda"></a> [lambda](#module\_lambda) | github.com/pbs/terraform-aws-lambda-module | 1.3.16 |
+| <a name="module_lambda"></a> [lambda](#module\_lambda) | github.com/pbs/terraform-aws-lambda-module | 1.3.17 |
 | <a name="module_lambda_permission"></a> [lambda\_permission](#module\_lambda\_permission) | github.com/pbs/terraform-aws-lambda-permission-module | 0.0.1 |
 | <a name="module_lb_egress"></a> [lb\_egress](#module\_lb\_egress) | github.com/pbs/terraform-aws-sg-rule-module | 0.0.10 |
 | <a name="module_lb_http_ingress_cidrs"></a> [lb\_http\_ingress\_cidrs](#module\_lb\_http\_ingress\_cidrs) | github.com/pbs/terraform-aws-sg-rule-module | 0.0.11 |
