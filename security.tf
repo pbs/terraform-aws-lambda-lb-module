@@ -14,7 +14,7 @@ resource "aws_security_group" "lb_sg" {
 module "lb_egress" {
   count = var.create_lb_sg ? 1 : 0
 
-  source = "github.com/pbs/terraform-aws-sg-rule-module?ref=0.0.16"
+  source = "github.com/pbs/terraform-aws-sg-rule-module?ref=0.0.19"
 
   security_group_id = aws_security_group.lb_sg[0].id
 
